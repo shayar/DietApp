@@ -1,4 +1,4 @@
-# my-ai-project
+# Diet App
 
 A production-ready monorepo template featuring:
 
@@ -88,12 +88,12 @@ DietApp/
 
    ```sh
    git clone <repo-url>
-   cd my-ai-project
+   cd DietApp
    ```
 
 2. **Configure environment variables**
 
-   - `node-api/.env` (example):
+   - `api/.env` (example):
      ```
      JWT_SECRET=supersecret
      ```
@@ -179,7 +179,7 @@ curl -X POST http://localhost:8000/ai/predict \
 
 ## Folder/Code Explanation
 
-### node-api/
+### api/
 
 - `controllers/`: Business logic for each resource (user, etc.)
 - `middlewares/`: Auth, error handlers, input validation, etc.
