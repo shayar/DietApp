@@ -31,5 +31,6 @@ exports.login = async (req, res, next) => {
 };
 
 exports.profile = (req, res) => {
-  res.json({ email: req.user.email });
+  res.json({ email: req.user.email }); // hi i made a change
+  console.log('making very important changes')
 };
