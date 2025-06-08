@@ -1,14 +1,8 @@
 version: '3.9'
 services:
-  node-api:
-    build: ./node-api
+  diet-app-service:
+    build: ./api-service
     env_file:
-      - ./node-api/.env
-    ports:
-      - '3000:3000'
-  ai-service:
-    build: ./ai-service
-    env_file:
-      - ./ai-service/.env
+      - ./api-service/.env
     ports:
       - '8000:8000'

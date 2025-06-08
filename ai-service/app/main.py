@@ -1,16 +1,20 @@
 from fastapi import FastAPI
-from app.api import ai
-from app.utils.logger import setup_logger
+from app.api import users, items
+from app.services.db import db
 
-setup_logger()
 app = FastAPI(
-    title="AI Service",
-    description="Demo FastAPI for AI endpoint",
+    title="AI Project Python API",
+    description="A FastAPI application for managing users and items in an AI based Diet App project.",
     version="1.0.0"
 )
 
-@app.get("/")
-def read_root():
-    return {"message": "AI Service running"}
+@app.on_event("startup")
+async def on_startup():
+    await db.connect()
 
-app.include_router(ai.router, prefix="/ai")
+@app.on_event("shutdown")
+async def on_shutdown():
+    await db.close()
+
+app.include_router(users.router, prefix="/users", tags=["users"])
+app.include_router(items.router, prefix="/items", tags=["items"])
