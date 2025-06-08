@@ -1,11 +1,10 @@
 # Diet App
 
-A production-ready monorepo template featuring:
+A production-ready template featuring:
 
-- **Node.js (Express) API** for user management
 - **Python (FastAPI) service** for AI/ML tasks
 
-Both services are containerized with Docker, follow scalable architecture, and expose interactive API documentation (Swagger/OpenAPI).
+The service is containerized with Docker, follows scalable architecture, and exposes interactive API documentation (Swagger/OpenAPI).
 
 ---
 
@@ -24,13 +23,6 @@ Both services are containerized with Docker, follow scalable architecture, and e
 
 ## Features
 
-### Node.js API
-
-- User registration, login, JWT-based authentication
-- Security best practices: Helmet, CORS, hashed passwords
-- Swagger/OpenAPI docs auto-generated
-- Example unit tests with Jest
-
 ### Python FastAPI AI Service
 
 - Demo AI endpoint (`/ai/predict`)
@@ -38,9 +30,9 @@ Both services are containerized with Docker, follow scalable architecture, and e
 - Swagger UI docs by default
 - Example unit tests with pytest
 
-### Dockerized & Orchestrated
+### Dockerized
 
-- Run both services with a single command using Docker Compose
+- Run the service with a single command using Docker Compose
 - `.env`-driven configuration for secrets
 
 ---
@@ -49,20 +41,6 @@ Both services are containerized with Docker, follow scalable architecture, and e
 
 ```
 DietApp/
-│
-├── api/           # Node.js Express API microservice
-│   ├── src/
-│   │   ├── controllers/
-│   │   ├── middlewares/
-│   │   ├── routes/
-│   │   ├── services/
-│   │   ├── utils/
-│   │   ├── app.js
-│   │   └── server.js
-│   ├── tests/
-│   ├── Dockerfile
-│   ├── package.json
-│   └── .env
 │
 ├── ai-service/         # Python FastAPI AI microservice
 │   ├── app/
@@ -86,45 +64,30 @@ DietApp/
 
 1. **Clone the repository**
 
-   ```sh
-   git clone <repo-url>
-   cd DietApp
-   ```
+```sh
+git clone <repo-url>
+cd DietApp
+```
 
 2. **Configure environment variables**
 
-   - `api/.env` (example):
-     ```
-     JWT_SECRET=supersecret
-     ```
-   - `ai-service/.env` (empty or add as needed for real integration)
+- `ai-service/.env` (add as needed for real integration)
 
 3. **Run with Docker Compose**
 
-   ```sh
-   docker-compose up --build
-   ```
+```sh
+docker-compose up --build
+```
 
-   - Node.js API: [http://localhost:3000](http://localhost:3000)
-   - FastAPI AI: [http://localhost:8000](http://localhost:8000)
+- FastAPI AI: [http://localhost:8000](http://localhost:8000)
 
 4. **Explore API Documentation**
-   - Node.js Swagger: [http://localhost:3000/api-docs](http://localhost:3000/api-docs)
-   - FastAPI Swagger: [http://localhost:8000/docs](http://localhost:8000/docs)
+
+- FastAPI Swagger: [http://localhost:8000/docs](http://localhost:8000/docs)
 
 ---
 
 ## API Overview
-
-### Node.js API Endpoints (`/api/users`)
-
-| Route     | Method | Description    | Auth Required? |
-| --------- | ------ | -------------- | :------------: |
-| /register | POST   | Register user  |       No       |
-| /login    | POST   | Login, get JWT |       No       |
-| /profile  | GET    | Get profile    |   Yes (JWT)    |
-
-See `/api-docs` for interactive documentation.
 
 ### FastAPI AI Endpoints (`/ai`)
 
@@ -138,22 +101,6 @@ See `/docs` for interactive documentation.
 
 ## Example Usage
 
-### Register a user
-
-```sh
-curl -X POST http://localhost:3000/api/users/register \
-  -H "Content-Type: application/json" \
-  -d '{"email":"test@example.com","password":"password"}'
-```
-
-### Login
-
-```sh
-curl -X POST http://localhost:3000/api/users/login \
-  -H "Content-Type: application/json" \
-  -d '{"email":"test@example.com","password":"password"}'
-```
-
 ### Use the AI Service
 
 ```sh
@@ -166,10 +113,6 @@ curl -X POST http://localhost:8000/ai/predict \
 
 ## Testing
 
-- **Node.js**
-  ```sh
-  docker-compose exec node-api npm test
-  ```
 - **Python**
   ```sh
   docker-compose exec ai-service pytest
@@ -178,16 +121,6 @@ curl -X POST http://localhost:8000/ai/predict \
 ---
 
 ## Folder/Code Explanation
-
-### api/
-
-- `controllers/`: Business logic for each resource (user, etc.)
-- `middlewares/`: Auth, error handlers, input validation, etc.
-- `routes/`: API endpoints, with Swagger docs in JSDoc
-- `services/`: External dependencies (e.g., database, external APIs)
-- `utils/`: Logger, helper functions
-- `app.js`/`server.js`: Main Express app and startup logic
-- `tests/`: Jest test files
 
 ### ai-service/
 
@@ -199,7 +132,7 @@ curl -X POST http://localhost:8000/ai/predict \
 
 ### docker-compose.yml
 
-- Launches both services for full-stack development.
+- Launches the service for development.
 
 ---
 
