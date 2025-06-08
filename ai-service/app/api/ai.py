@@ -10,3 +10,4 @@ class PredictRequest(BaseModel):
 def predict(req: PredictRequest):
     """A demo AI endpoint that reverses input text."""
     return {"result": req.text[::-1]}
+

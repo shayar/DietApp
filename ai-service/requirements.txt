@@ -1,4 +1,10 @@
 fastapi
 uvicorn
+asyncpg
+python-jose[cryptography]
+passlib[bcrypt]
+pydantic[email]
 pytest
+httpx
+python-dotenv
 loguru
