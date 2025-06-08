@@ -7,5 +7,4 @@ pydantic[email]
 pytest
 httpx
 python-dotenv
-psycopg2
 loguru

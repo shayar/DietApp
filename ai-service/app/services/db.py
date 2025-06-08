@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-SUPABASE_DB_URL = os.getenv("SUPABASE_DB_URL")
+DB_URL = os.getenv("DB_URL")
 
 class Database:
     pool: asyncpg.Pool = None
@@ -12,7 +12,7 @@ class Database:
     @classmethod
     async def connect(cls):
         if cls.pool is None:
-            cls.pool = await asyncpg.create_pool(SUPABASE_DB_URL)
+            cls.pool = await asyncpg.create_pool(DB_URL)
 
     @classmethod
     async def close(cls):

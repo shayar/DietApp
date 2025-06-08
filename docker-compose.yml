@@ -1,0 +1,11 @@
+version: '3.9'
+services:
+  diet-app-service:
+    build: ./ai-service
+    env_file:
+      - ./ai-service/.env
+    ports:
+      - '8000:8000'
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
